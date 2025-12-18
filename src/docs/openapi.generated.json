@@ -1,0 +1,7195 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API RRHH Hospital - Personal",
+    "version": "1.0.0",
+    "description": "OpenAPI enterprise (auto)"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Agentes": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "planta_id": {
+            "type": "string"
+          },
+          "categoria_id": {
+            "type": "string"
+          },
+          "ocupacion_id": {
+            "type": "string"
+          },
+          "regimen_horario_id": {
+            "type": "string"
+          },
+          "ley_id": {
+            "type": "string"
+          },
+          "sector_id": {
+            "type": "string"
+          },
+          "jefatura_id": {
+            "type": "string"
+          },
+          "fecha_ingreso": {
+            "type": "string"
+          },
+          "fecha_baja": {
+            "type": "string"
+          },
+          "estado_empleo": {
+            "type": "string"
+          },
+          "salario_mensual": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "AgentesServicios": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "dependencia_id": {
+            "type": "string"
+          },
+          "servicio_nombre": {
+            "type": "string"
+          },
+          "jefe_nombre": {
+            "type": "string"
+          },
+          "fecha_desde": {
+            "type": "string"
+          },
+          "fecha_hasta": {
+            "type": "string"
+          },
+          "motivo": {
+            "type": "string"
+          },
+          "observaciones": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Bonificaciones": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "decreto_numero": {
+            "type": "string"
+          },
+          "motivo": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "anio": {
+            "type": "string"
+          },
+          "observaciones": {
+            "type": "string"
+          }
+        }
+      },
+      "Categoria": {
+        "type": "object",
+        "properties": {
+          "CATEGORIA": {
+            "type": "string"
+          }
+        }
+      },
+      "Cc": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "observaciones": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Ccoodegdeba": {
+        "type": "object",
+        "properties": {
+          "nro_expediente": {
+            "type": "string"
+          },
+          "caratula": {
+            "type": "string"
+          },
+          "fecha_y_zura": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Citaciones": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "citado_por": {
+            "type": "string"
+          },
+          "motivo": {
+            "type": "string"
+          },
+          "citacion_activa": {
+            "type": "string"
+          },
+          "fecha_citacion": {
+            "type": "string"
+          },
+          "cierre_citacion": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Codigoa": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "type": "string"
+          },
+          "observacion": {
+            "type": "string"
+          }
+        }
+      },
+      "Consultas": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "motivo_consulta": {
+            "type": "string"
+          },
+          "explicacion": {
+            "type": "string"
+          },
+          "atendido_por": {
+            "type": "string"
+          },
+          "hora_atencion": {
+            "type": "string"
+          },
+          "impreso": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Disiplina": {
+        "type": "object",
+        "properties": {
+          "disciplina": {
+            "type": "string"
+          }
+        }
+      },
+      "Dominios": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          }
+        }
+      },
+      "Especialidaddesmedicas": {
+        "type": "object",
+        "properties": {
+          "especialidad": {
+            "type": "string"
+          },
+          "profesion_referencia": {
+            "type": "string"
+          }
+        }
+      },
+      "Expedientes": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "caratula": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Funciones": {
+        "type": "object",
+        "properties": {
+          "funcion": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Inconvenientesagentes": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "motivo": {
+            "type": "string"
+          },
+          "observaciones": {
+            "type": "string"
+          },
+          "fecha_incidente": {
+            "type": "string"
+          },
+          "fecha_desde": {
+            "type": "string"
+          },
+          "fecha_hasta": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Jefaturas": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string"
+          },
+          "jefe": {
+            "type": "string"
+          }
+        }
+      },
+      "Jefedeptos": {
+        "type": "object",
+        "properties": {
+          "jefedepto": {
+            "type": "string"
+          },
+          "depto": {
+            "type": "string"
+          },
+          "oficinacentral": {
+            "type": "string"
+          }
+        }
+      },
+      "Ley": {
+        "type": "object",
+        "properties": {
+          "ley_nombre": {
+            "type": "string"
+          },
+          "codigoexp": {
+            "type": "string"
+          },
+          "leyactiva": {
+            "type": "string"
+          }
+        }
+      },
+      "Localidades": {
+        "type": "object",
+        "properties": {
+          "provincia_nombre": {
+            "type": "string"
+          },
+          "municipio_nombre": {
+            "type": "string"
+          },
+          "localidad_nombre": {
+            "type": "string"
+          },
+          "municipio_id": {
+            "type": "string"
+          },
+          "provincia_id": {
+            "type": "string"
+          },
+          "localidad_codigo": {
+            "type": "string"
+          }
+        }
+      },
+      "Ministerios": {
+        "type": "object",
+        "properties": {
+          "ministerio": {
+            "type": "string"
+          }
+        }
+      },
+      "Nomenclador": {
+        "type": "object",
+        "properties": {
+          "cargo": {
+            "type": "string"
+          },
+          "tareas": {
+            "type": "string"
+          }
+        }
+      },
+      "Ocupacion": {
+        "type": "object",
+        "properties": {
+          "nombre_ocupacion": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "string"
+          },
+          "regimen_horario_id": {
+            "type": "string"
+          },
+          "es_insalubre": {
+            "type": "string"
+          },
+          "especialidad_id": {
+            "type": "string"
+          },
+          "ley_id": {
+            "type": "string"
+          },
+          "agrupamiento": {
+            "type": "string"
+          },
+          "grado": {
+            "type": "string"
+          },
+          "asignacion": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "string"
+          }
+        }
+      },
+      "Ordenesdetrabajo": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "requiere": {
+            "type": "string"
+          },
+          "descripcion_tarea": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Pedidos": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "pedido": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "lugar": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Permisos": {
+        "type": "object",
+        "properties": {
+          "clave": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "dominio_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Personal": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "apellido": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "fecha_nacimiento": {
+            "type": "string"
+          },
+          "sexo_id": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "domicilio": {
+            "type": "string"
+          },
+          "localidad_id": {
+            "type": "string"
+          },
+          "cuil": {
+            "type": "string"
+          },
+          "nacionalidad": {
+            "type": "string"
+          },
+          "observaciones": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Planta": {
+        "type": "object",
+        "properties": {
+          "planta_nombre": {
+            "type": "string"
+          }
+        }
+      },
+      "Rbac": {
+        "type": "object",
+        "properties": {}
+      },
+      "Regimenhorario": {
+        "type": "object",
+        "properties": {
+          "regimen_horario": {
+            "type": "string"
+          }
+        }
+      },
+      "Reparticiones": {
+        "type": "object",
+        "properties": {
+          "reparticion_nombre": {
+            "type": "string"
+          }
+        }
+      },
+      "Resoluciones": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "motivo": {
+            "type": "string"
+          },
+          "observaciones": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Roles": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          }
+        }
+      },
+      "RolesPermisos": {
+        "type": "object",
+        "properties": {
+          "rol_id": {
+            "type": "string"
+          },
+          "permiso_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Sexo": {
+        "type": "object",
+        "properties": {
+          "sexo_nombre": {
+            "type": "string"
+          }
+        }
+      },
+      "Tareas": {
+        "type": "object",
+        "properties": {
+          "nombre_tarea": {
+            "type": "string"
+          },
+          "descripcion_tarea": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "asignado_a": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Tareasadquiridias": {
+        "type": "object",
+        "properties": {
+          "tarea": {
+            "type": "string"
+          },
+          "descripcion_tarea": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Tblarchivos": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "tipo": {
+            "type": "string"
+          },
+          "tamanio": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "descripcion_archivo": {
+            "type": "string"
+          },
+          "nombre_archivo_original": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      },
+      "Tipodecuidado": {
+        "type": "object",
+        "properties": {
+          "cuidado_nombre": {
+            "type": "string"
+          }
+        }
+      },
+      "Tipoderesolucion": {
+        "type": "object",
+        "properties": {
+          "resolucion_nombre": {
+            "type": "string"
+          }
+        }
+      },
+      "Usuarios": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "creado_en": {
+            "type": "string"
+          },
+          "actualizado_en": {
+            "type": "string"
+          }
+        }
+      },
+      "UsuariosDominios": {
+        "type": "object",
+        "properties": {
+          "usuario_id": {
+            "type": "string"
+          },
+          "dominio_id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/agentes": {
+      "get": {
+        "tags": [
+          "agentes"
+        ],
+        "summary": "Listar agentes",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "agentes"
+        ],
+        "summary": "Crear agentes",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Agentes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/agentes/{id}": {
+      "get": {
+        "tags": [
+          "agentes"
+        ],
+        "summary": "Obtener agentes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "agentes"
+        ],
+        "summary": "Actualizar agentes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Agentes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agentes"
+        ],
+        "summary": "Eliminar agentes (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/agentes_servicios": {
+      "get": {
+        "tags": [
+          "agentes_servicios"
+        ],
+        "summary": "Listar agentes_servicios",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "agentes_servicios"
+        ],
+        "summary": "Crear agentes_servicios",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentesServicios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/agentes_servicios/{id}": {
+      "get": {
+        "tags": [
+          "agentes_servicios"
+        ],
+        "summary": "Obtener agentes_servicios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "agentes_servicios"
+        ],
+        "summary": "Actualizar agentes_servicios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentesServicios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agentes_servicios"
+        ],
+        "summary": "Eliminar agentes_servicios (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/bonificaciones": {
+      "get": {
+        "tags": [
+          "bonificaciones"
+        ],
+        "summary": "Listar bonificaciones",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "bonificaciones"
+        ],
+        "summary": "Crear bonificaciones",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Bonificaciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/bonificaciones/{id}": {
+      "get": {
+        "tags": [
+          "bonificaciones"
+        ],
+        "summary": "Obtener bonificaciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "bonificaciones"
+        ],
+        "summary": "Actualizar bonificaciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Bonificaciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "bonificaciones"
+        ],
+        "summary": "Eliminar bonificaciones (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/categoria": {
+      "get": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Listar categoria",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Crear categoria",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Categoria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/categoria/{id}": {
+      "get": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Obtener categoria",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Actualizar categoria",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Categoria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Eliminar categoria (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/cc": {
+      "get": {
+        "tags": [
+          "cc"
+        ],
+        "summary": "Listar cc",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "cc"
+        ],
+        "summary": "Crear cc",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/cc/{id}": {
+      "get": {
+        "tags": [
+          "cc"
+        ],
+        "summary": "Obtener cc",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "cc"
+        ],
+        "summary": "Actualizar cc",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "cc"
+        ],
+        "summary": "Eliminar cc (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/ccoodegdeba": {
+      "get": {
+        "tags": [
+          "ccoodegdeba"
+        ],
+        "summary": "Listar ccoodegdeba",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ccoodegdeba"
+        ],
+        "summary": "Crear ccoodegdeba",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ccoodegdeba"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/ccoodegdeba/{id}": {
+      "get": {
+        "tags": [
+          "ccoodegdeba"
+        ],
+        "summary": "Obtener ccoodegdeba",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ccoodegdeba"
+        ],
+        "summary": "Actualizar ccoodegdeba",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ccoodegdeba"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ccoodegdeba"
+        ],
+        "summary": "Eliminar ccoodegdeba (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/citaciones": {
+      "get": {
+        "tags": [
+          "citaciones"
+        ],
+        "summary": "Listar citaciones",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "citaciones"
+        ],
+        "summary": "Crear citaciones",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Citaciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/citaciones/{id}": {
+      "get": {
+        "tags": [
+          "citaciones"
+        ],
+        "summary": "Obtener citaciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "citaciones"
+        ],
+        "summary": "Actualizar citaciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Citaciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "citaciones"
+        ],
+        "summary": "Eliminar citaciones (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/codigoa": {
+      "get": {
+        "tags": [
+          "codigoa"
+        ],
+        "summary": "Listar codigoa",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "codigoa"
+        ],
+        "summary": "Crear codigoa",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Codigoa"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/codigoa/{id}": {
+      "get": {
+        "tags": [
+          "codigoa"
+        ],
+        "summary": "Obtener codigoa",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "codigoa"
+        ],
+        "summary": "Actualizar codigoa",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Codigoa"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "codigoa"
+        ],
+        "summary": "Eliminar codigoa (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/consultas": {
+      "get": {
+        "tags": [
+          "consultas"
+        ],
+        "summary": "Listar consultas",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "consultas"
+        ],
+        "summary": "Crear consultas",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Consultas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/consultas/{id}": {
+      "get": {
+        "tags": [
+          "consultas"
+        ],
+        "summary": "Obtener consultas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "consultas"
+        ],
+        "summary": "Actualizar consultas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Consultas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "consultas"
+        ],
+        "summary": "Eliminar consultas (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/disiplina": {
+      "get": {
+        "tags": [
+          "disiplina"
+        ],
+        "summary": "Listar disiplina",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "disiplina"
+        ],
+        "summary": "Crear disiplina",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Disiplina"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/disiplina/{id}": {
+      "get": {
+        "tags": [
+          "disiplina"
+        ],
+        "summary": "Obtener disiplina",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "disiplina"
+        ],
+        "summary": "Actualizar disiplina",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Disiplina"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "disiplina"
+        ],
+        "summary": "Eliminar disiplina (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/dominios": {
+      "get": {
+        "tags": [
+          "dominios"
+        ],
+        "summary": "Listar dominios",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "dominios"
+        ],
+        "summary": "Crear dominios",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dominios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/dominios/{id}": {
+      "get": {
+        "tags": [
+          "dominios"
+        ],
+        "summary": "Obtener dominios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "dominios"
+        ],
+        "summary": "Actualizar dominios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dominios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "dominios"
+        ],
+        "summary": "Eliminar dominios (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/especialidaddesmedicas": {
+      "get": {
+        "tags": [
+          "especialidaddesmedicas"
+        ],
+        "summary": "Listar especialidaddesmedicas",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "especialidaddesmedicas"
+        ],
+        "summary": "Crear especialidaddesmedicas",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Especialidaddesmedicas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/especialidaddesmedicas/{id}": {
+      "get": {
+        "tags": [
+          "especialidaddesmedicas"
+        ],
+        "summary": "Obtener especialidaddesmedicas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "especialidaddesmedicas"
+        ],
+        "summary": "Actualizar especialidaddesmedicas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Especialidaddesmedicas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "especialidaddesmedicas"
+        ],
+        "summary": "Eliminar especialidaddesmedicas (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/expedientes": {
+      "get": {
+        "tags": [
+          "expedientes"
+        ],
+        "summary": "Listar expedientes",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "expedientes"
+        ],
+        "summary": "Crear expedientes",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Expedientes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/expedientes/{id}": {
+      "get": {
+        "tags": [
+          "expedientes"
+        ],
+        "summary": "Obtener expedientes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "expedientes"
+        ],
+        "summary": "Actualizar expedientes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Expedientes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "expedientes"
+        ],
+        "summary": "Eliminar expedientes (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/funciones": {
+      "get": {
+        "tags": [
+          "funciones"
+        ],
+        "summary": "Listar funciones",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "funciones"
+        ],
+        "summary": "Crear funciones",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Funciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/funciones/{id}": {
+      "get": {
+        "tags": [
+          "funciones"
+        ],
+        "summary": "Obtener funciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "funciones"
+        ],
+        "summary": "Actualizar funciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Funciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "funciones"
+        ],
+        "summary": "Eliminar funciones (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/inconvenientesagentes": {
+      "get": {
+        "tags": [
+          "inconvenientesagentes"
+        ],
+        "summary": "Listar inconvenientesagentes",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "inconvenientesagentes"
+        ],
+        "summary": "Crear inconvenientesagentes",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inconvenientesagentes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/inconvenientesagentes/{id}": {
+      "get": {
+        "tags": [
+          "inconvenientesagentes"
+        ],
+        "summary": "Obtener inconvenientesagentes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "inconvenientesagentes"
+        ],
+        "summary": "Actualizar inconvenientesagentes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inconvenientesagentes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "inconvenientesagentes"
+        ],
+        "summary": "Eliminar inconvenientesagentes (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/jefaturas": {
+      "get": {
+        "tags": [
+          "jefaturas"
+        ],
+        "summary": "Listar jefaturas",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "jefaturas"
+        ],
+        "summary": "Crear jefaturas",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Jefaturas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/jefaturas/{id}": {
+      "get": {
+        "tags": [
+          "jefaturas"
+        ],
+        "summary": "Obtener jefaturas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "jefaturas"
+        ],
+        "summary": "Actualizar jefaturas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Jefaturas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "jefaturas"
+        ],
+        "summary": "Eliminar jefaturas (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/jefedeptos": {
+      "get": {
+        "tags": [
+          "jefedeptos"
+        ],
+        "summary": "Listar jefedeptos",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "jefedeptos"
+        ],
+        "summary": "Crear jefedeptos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Jefedeptos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/jefedeptos/{id}": {
+      "get": {
+        "tags": [
+          "jefedeptos"
+        ],
+        "summary": "Obtener jefedeptos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "jefedeptos"
+        ],
+        "summary": "Actualizar jefedeptos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Jefedeptos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "jefedeptos"
+        ],
+        "summary": "Eliminar jefedeptos (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/ley": {
+      "get": {
+        "tags": [
+          "ley"
+        ],
+        "summary": "Listar ley",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ley"
+        ],
+        "summary": "Crear ley",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ley"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/ley/{id}": {
+      "get": {
+        "tags": [
+          "ley"
+        ],
+        "summary": "Obtener ley",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ley"
+        ],
+        "summary": "Actualizar ley",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ley"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ley"
+        ],
+        "summary": "Eliminar ley (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/localidades": {
+      "get": {
+        "tags": [
+          "localidades"
+        ],
+        "summary": "Listar localidades",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "localidades"
+        ],
+        "summary": "Crear localidades",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Localidades"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/localidades/{id}": {
+      "get": {
+        "tags": [
+          "localidades"
+        ],
+        "summary": "Obtener localidades",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "localidades"
+        ],
+        "summary": "Actualizar localidades",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Localidades"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "localidades"
+        ],
+        "summary": "Eliminar localidades (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/ministerios": {
+      "get": {
+        "tags": [
+          "ministerios"
+        ],
+        "summary": "Listar ministerios",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ministerios"
+        ],
+        "summary": "Crear ministerios",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ministerios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/ministerios/{id}": {
+      "get": {
+        "tags": [
+          "ministerios"
+        ],
+        "summary": "Obtener ministerios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ministerios"
+        ],
+        "summary": "Actualizar ministerios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ministerios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ministerios"
+        ],
+        "summary": "Eliminar ministerios (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/nomenclador": {
+      "get": {
+        "tags": [
+          "nomenclador"
+        ],
+        "summary": "Listar nomenclador",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "nomenclador"
+        ],
+        "summary": "Crear nomenclador",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Nomenclador"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/nomenclador/{id}": {
+      "get": {
+        "tags": [
+          "nomenclador"
+        ],
+        "summary": "Obtener nomenclador",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "nomenclador"
+        ],
+        "summary": "Actualizar nomenclador",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Nomenclador"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "nomenclador"
+        ],
+        "summary": "Eliminar nomenclador (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/ocupacion": {
+      "get": {
+        "tags": [
+          "ocupacion"
+        ],
+        "summary": "Listar ocupacion",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ocupacion"
+        ],
+        "summary": "Crear ocupacion",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ocupacion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/ocupacion/{id}": {
+      "get": {
+        "tags": [
+          "ocupacion"
+        ],
+        "summary": "Obtener ocupacion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ocupacion"
+        ],
+        "summary": "Actualizar ocupacion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ocupacion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ocupacion"
+        ],
+        "summary": "Eliminar ocupacion (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/ordenesdetrabajo": {
+      "get": {
+        "tags": [
+          "ordenesdetrabajo"
+        ],
+        "summary": "Listar ordenesdetrabajo",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ordenesdetrabajo"
+        ],
+        "summary": "Crear ordenesdetrabajo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ordenesdetrabajo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/ordenesdetrabajo/{id}": {
+      "get": {
+        "tags": [
+          "ordenesdetrabajo"
+        ],
+        "summary": "Obtener ordenesdetrabajo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ordenesdetrabajo"
+        ],
+        "summary": "Actualizar ordenesdetrabajo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ordenesdetrabajo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ordenesdetrabajo"
+        ],
+        "summary": "Eliminar ordenesdetrabajo (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/pedidos": {
+      "get": {
+        "tags": [
+          "pedidos"
+        ],
+        "summary": "Listar pedidos",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "pedidos"
+        ],
+        "summary": "Crear pedidos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pedidos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/pedidos/{id}": {
+      "get": {
+        "tags": [
+          "pedidos"
+        ],
+        "summary": "Obtener pedidos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "pedidos"
+        ],
+        "summary": "Actualizar pedidos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pedidos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "pedidos"
+        ],
+        "summary": "Eliminar pedidos (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/permisos": {
+      "get": {
+        "tags": [
+          "permisos"
+        ],
+        "summary": "Listar permisos",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "permisos"
+        ],
+        "summary": "Crear permisos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permisos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/permisos/{id}": {
+      "get": {
+        "tags": [
+          "permisos"
+        ],
+        "summary": "Obtener permisos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "permisos"
+        ],
+        "summary": "Actualizar permisos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Permisos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "permisos"
+        ],
+        "summary": "Eliminar permisos (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/personal": {
+      "get": {
+        "tags": [
+          "personal"
+        ],
+        "summary": "Listar personal",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "personal"
+        ],
+        "summary": "Crear personal",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Personal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/personal/{id}": {
+      "get": {
+        "tags": [
+          "personal"
+        ],
+        "summary": "Obtener personal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "personal"
+        ],
+        "summary": "Actualizar personal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Personal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "personal"
+        ],
+        "summary": "Eliminar personal (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/planta": {
+      "get": {
+        "tags": [
+          "planta"
+        ],
+        "summary": "Listar planta",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "planta"
+        ],
+        "summary": "Crear planta",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Planta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/planta/{id}": {
+      "get": {
+        "tags": [
+          "planta"
+        ],
+        "summary": "Obtener planta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "planta"
+        ],
+        "summary": "Actualizar planta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Planta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "planta"
+        ],
+        "summary": "Eliminar planta (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/rbac": {
+      "get": {
+        "tags": [
+          "rbac"
+        ],
+        "summary": "Listar rbac",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "rbac"
+        ],
+        "summary": "Crear rbac",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rbac"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/rbac/{id}": {
+      "get": {
+        "tags": [
+          "rbac"
+        ],
+        "summary": "Obtener rbac",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "rbac"
+        ],
+        "summary": "Actualizar rbac",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rbac"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "rbac"
+        ],
+        "summary": "Eliminar rbac (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/regimenhorario": {
+      "get": {
+        "tags": [
+          "regimenhorario"
+        ],
+        "summary": "Listar regimenhorario",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "regimenhorario"
+        ],
+        "summary": "Crear regimenhorario",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Regimenhorario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/regimenhorario/{id}": {
+      "get": {
+        "tags": [
+          "regimenhorario"
+        ],
+        "summary": "Obtener regimenhorario",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "regimenhorario"
+        ],
+        "summary": "Actualizar regimenhorario",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Regimenhorario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "regimenhorario"
+        ],
+        "summary": "Eliminar regimenhorario (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/reparticiones": {
+      "get": {
+        "tags": [
+          "reparticiones"
+        ],
+        "summary": "Listar reparticiones",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "reparticiones"
+        ],
+        "summary": "Crear reparticiones",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reparticiones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/reparticiones/{id}": {
+      "get": {
+        "tags": [
+          "reparticiones"
+        ],
+        "summary": "Obtener reparticiones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "reparticiones"
+        ],
+        "summary": "Actualizar reparticiones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reparticiones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "reparticiones"
+        ],
+        "summary": "Eliminar reparticiones (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/resoluciones": {
+      "get": {
+        "tags": [
+          "resoluciones"
+        ],
+        "summary": "Listar resoluciones",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "resoluciones"
+        ],
+        "summary": "Crear resoluciones",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Resoluciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/resoluciones/{id}": {
+      "get": {
+        "tags": [
+          "resoluciones"
+        ],
+        "summary": "Obtener resoluciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "resoluciones"
+        ],
+        "summary": "Actualizar resoluciones",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Resoluciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "resoluciones"
+        ],
+        "summary": "Eliminar resoluciones (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/roles": {
+      "get": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Listar roles",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Crear roles",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Roles"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/roles/{id}": {
+      "get": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Obtener roles",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Actualizar roles",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Roles"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "roles"
+        ],
+        "summary": "Eliminar roles (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/roles_permisos": {
+      "get": {
+        "tags": [
+          "roles_permisos"
+        ],
+        "summary": "Listar roles_permisos",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "roles_permisos"
+        ],
+        "summary": "Crear roles_permisos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RolesPermisos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/roles_permisos/{id}": {
+      "get": {
+        "tags": [
+          "roles_permisos"
+        ],
+        "summary": "Obtener roles_permisos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "roles_permisos"
+        ],
+        "summary": "Actualizar roles_permisos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RolesPermisos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "roles_permisos"
+        ],
+        "summary": "Eliminar roles_permisos (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/sexo": {
+      "get": {
+        "tags": [
+          "sexo"
+        ],
+        "summary": "Listar sexo",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "sexo"
+        ],
+        "summary": "Crear sexo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sexo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/sexo/{id}": {
+      "get": {
+        "tags": [
+          "sexo"
+        ],
+        "summary": "Obtener sexo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "sexo"
+        ],
+        "summary": "Actualizar sexo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sexo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "sexo"
+        ],
+        "summary": "Eliminar sexo (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/tareas": {
+      "get": {
+        "tags": [
+          "tareas"
+        ],
+        "summary": "Listar tareas",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tareas"
+        ],
+        "summary": "Crear tareas",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tareas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/tareas/{id}": {
+      "get": {
+        "tags": [
+          "tareas"
+        ],
+        "summary": "Obtener tareas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "tareas"
+        ],
+        "summary": "Actualizar tareas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tareas"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "tareas"
+        ],
+        "summary": "Eliminar tareas (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/tareasadquiridias": {
+      "get": {
+        "tags": [
+          "tareasadquiridias"
+        ],
+        "summary": "Listar tareasadquiridias",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tareasadquiridias"
+        ],
+        "summary": "Crear tareasadquiridias",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tareasadquiridias"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/tareasadquiridias/{id}": {
+      "get": {
+        "tags": [
+          "tareasadquiridias"
+        ],
+        "summary": "Obtener tareasadquiridias",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "tareasadquiridias"
+        ],
+        "summary": "Actualizar tareasadquiridias",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tareasadquiridias"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "tareasadquiridias"
+        ],
+        "summary": "Eliminar tareasadquiridias (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/tblarchivos": {
+      "get": {
+        "tags": [
+          "tblarchivos"
+        ],
+        "summary": "Listar tblarchivos",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tblarchivos"
+        ],
+        "summary": "Crear tblarchivos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tblarchivos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/tblarchivos/{id}": {
+      "get": {
+        "tags": [
+          "tblarchivos"
+        ],
+        "summary": "Obtener tblarchivos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "tblarchivos"
+        ],
+        "summary": "Actualizar tblarchivos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tblarchivos"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "tblarchivos"
+        ],
+        "summary": "Eliminar tblarchivos (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/tipodecuidado": {
+      "get": {
+        "tags": [
+          "tipodecuidado"
+        ],
+        "summary": "Listar tipodecuidado",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tipodecuidado"
+        ],
+        "summary": "Crear tipodecuidado",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tipodecuidado"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/tipodecuidado/{id}": {
+      "get": {
+        "tags": [
+          "tipodecuidado"
+        ],
+        "summary": "Obtener tipodecuidado",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "tipodecuidado"
+        ],
+        "summary": "Actualizar tipodecuidado",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tipodecuidado"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "tipodecuidado"
+        ],
+        "summary": "Eliminar tipodecuidado (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/tipoderesolucion": {
+      "get": {
+        "tags": [
+          "tipoderesolucion"
+        ],
+        "summary": "Listar tipoderesolucion",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tipoderesolucion"
+        ],
+        "summary": "Crear tipoderesolucion",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tipoderesolucion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/tipoderesolucion/{id}": {
+      "get": {
+        "tags": [
+          "tipoderesolucion"
+        ],
+        "summary": "Obtener tipoderesolucion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "tipoderesolucion"
+        ],
+        "summary": "Actualizar tipoderesolucion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tipoderesolucion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "tipoderesolucion"
+        ],
+        "summary": "Eliminar tipoderesolucion (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/usuarios": {
+      "get": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Listar usuarios",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Crear usuarios",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuarios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/usuarios/{id}": {
+      "get": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Obtener usuarios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Actualizar usuarios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuarios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "usuarios"
+        ],
+        "summary": "Eliminar usuarios (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/usuarios_dominios": {
+      "get": {
+        "tags": [
+          "usuarios_dominios"
+        ],
+        "summary": "Listar usuarios_dominios",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "id"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default": "ASC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "usuarios_dominios"
+        ],
+        "summary": "Crear usuarios_dominios",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuariosDominios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado"
+          }
+        }
+      }
+    },
+    "/api/usuarios_dominios/{id}": {
+      "get": {
+        "tags": [
+          "usuarios_dominios"
+        ],
+        "summary": "Obtener usuarios_dominios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "usuarios_dominios"
+        ],
+        "summary": "Actualizar usuarios_dominios",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuariosDominios"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "usuarios_dominios"
+        ],
+        "summary": "Eliminar usuarios_dominios (soft-delete)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Borrado"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    }
+  }
+}

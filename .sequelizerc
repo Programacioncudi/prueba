@@ -1,0 +1,15 @@
+/**
+ * Archivo: .sequelizerc
+ * Responsabilidad:
+ *   - Decirle a sequelize-cli dónde están config, models, migrations y seeders
+ *     usando tu estructura REAL con src/database.
+ */
+
+const path = require("path");
+
+module.exports = {
+  config: path.resolve(__dirname, "config", "config.json"),
+  "models-path": path.resolve(__dirname, "src", "database", "models"),
+  "migrations-path": path.resolve(__dirname, "src", "database", "migrations"),
+  "seeders-path": path.resolve(__dirname, "src", "database", "seeders")
+};

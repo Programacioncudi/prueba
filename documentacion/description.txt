@@ -1,0 +1,83 @@
+DESCRIPCIÓN DE ESTRUCTURA DEL PROYECTO API (NODE.JS + EXPRESS + SEQUELIZE)
+===========================================================================
+Este archivo describe para qué sirve cada carpeta y cada archivo base.
+
+1) Carpeta /src
+----------------
+Contiene todo el código fuente de la API. Todo lo que hace funcionar el backend está dentro de esta carpeta.
+
+2) /src/app.js
+----------------
+Configura Express, la seguridad, los middlewares y las rutas principales.
+
+3) /src/server.js
+-------------------
+Punto de entrada del servidor. Levanta la API y carga las variables de entorno.
+
+4) Carpeta /src/config
+------------------------
+Contiene configuraciones globales:
+
+db.config.js ? configuración de Sequelize y conexión a la base MySQL  
+cors.config.js ? dominios permitidos  
+rateLimit.config.js ? protección anti ataques (DDOS)  
+logger.config.js ? logger avanzado con Winston  
+env.config.js ? carga y manejo de variables de entorno  
+
+5) Carpeta /src/database
+---------------------------
+models/     ? modelos Sequelize  
+migrations/ ? migraciones para crear/editar tablas  
+seeders/    ? carga inicial de datos  
+index.js    ? inicializa Sequelize y conecta modelos  
+
+6) Carpeta /src/modules
+-------------------------
+Cada módulo de la API vive acá. Por ejemplo: personal, usuarios, roles, asistencia, etc.
+
+- _routes.js ? une todas las rutas de todos los módulos.
+
+7) Carpeta /src/modules/personal
+-----------------------------------
+Módulo "personal" de ejemplo:
+
+personal.model.js        ? modelo Sequelize  
+personal.repository.js   ? acceso directo BD  
+personal.service.js      ? reglas de negocio  
+personal.controller.js   ? recibe petición HTTP  
+personal.routes.js       ? define endpoints  
+personal.schema.js       ? validaciones Joi  
+
+8) Carpeta /src/middleware
+----------------------------
+auth.middleware.js        ? verifica JWT  
+error.middleware.js       ? captura errores globales  
+cors.middleware.js        ? control CORS  
+validation.middleware.js  ? valida input del usuario  
+
+9) Carpeta /src/security
+---------------------------
+jwt.js          ? manejo de tokens  
+password.js     ? hashing bcrypt  
+permissions.js  ? permisos por rol  
+
+10) Carpeta /src/utils
+-------------------------
+Funciones auxiliares:
+
+crypto.js       ? encriptado  
+helpers.js      ? funciones útiles  
+api.response.js ? formato estándar de respuesta  
+
+11) Carpeta /env
+------------------
+Variables de entorno separadas:
+
+.env.development ? entorno de desarrollo  
+.env.production  ? entorno real (servidor)  
+.env.test        ? entorno de test automático  
+
+===========================================================================
+
+Este TXT sirve para documentación interna, onboarding de nuevos desarrolladores,
+y para entender claramente la arquitectura base antes de comenzar a escribir código.

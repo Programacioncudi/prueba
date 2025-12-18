@@ -1,0 +1,497 @@
+-- ===================================================================
+-- BASE DE DATOS RRHH - PERSONALV5
+-- Script de creación de estructura (catálogos + core + eventos)
+-- ===================================================================
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+CREATE DATABASE IF NOT EXISTS personalv5
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_0900_ai_ci;
+
+USE personalv5;
+
+-- ===================================================================
+-- C A T Á L O G O S   B Á S I C O S
+-- ===================================================================
+
+-- Categoria (PK se mantiene como ID porque la referenciamos así)
+CREATE TABLE categoria (
+  ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  CATEGORIA INT NULL,
+  UNIQUE KEY ux_categoria_categoria (CATEGORIA)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Código A (códigos auxiliares)
+CREATE TABLE codigoa (
+  nu INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  codigo VARCHAR(3) NOT NULL,
+  observacion VARCHAR(50) NULL,
+  UNIQUE KEY ux_codigoa_codigo (codigo)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Disiplina (disciplina profesional)
+CREATE TABLE disiplina (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  disciplina VARCHAR(255) NOT NULL,
+  UNIQUE KEY ux_disciplina (disciplina)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Especialidades médicas
+CREATE TABLE especialidaddesmedicas (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  especialidad VARCHAR(255) NULL,
+  profesion_referencia INT NULL,
+  UNIQUE KEY ux_especialidad (especialidad)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Jefaturas (áreas / jefes)
+CREATE TABLE jefaturas (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  sector VARCHAR(100) NULL,
+  jefe VARCHAR(100) NULL,
+  UNIQUE KEY ux_jefaturas_sector (sector)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Jefes de departamento
+CREATE TABLE jefedeptos (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  jefedepto VARCHAR(255) NULL,
+  depto VARCHAR(255) NULL,
+  oficinacentral VARCHAR(255) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Leyes laborales
+CREATE TABLE ley (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ley_nombre VARCHAR(200) NULL,
+  codigoexp INT NULL,
+  leyactiva TINYINT(1) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Ministerios
+CREATE TABLE ministerios (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ministerio VARCHAR(50) NULL,
+  UNIQUE KEY ux_ministerio (ministerio)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Nomenclador de cargos
+CREATE TABLE nomenclador (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cargo VARCHAR(50) NULL,
+  tareas INT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Planta (permanente, transitoria, etc.)
+CREATE TABLE planta (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  planta_nombre VARCHAR(255) NULL,
+  UNIQUE KEY ux_planta_nombre (planta_nombre)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Reparticiones / dependencias
+CREATE TABLE reparticiones (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  reparticion_nombre VARCHAR(50) NOT NULL,
+  UNIQUE KEY ux_reparticion_nombre (reparticion_nombre)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Sexo
+CREATE TABLE sexo (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  sexo_nombre VARCHAR(255) NOT NULL,
+  UNIQUE KEY ux_sexo_nombre (sexo_nombre)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Tipo de cuidado (catálogo)
+CREATE TABLE tipodecuidado (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cuidado_nombre VARCHAR(100) NOT NULL,
+  UNIQUE KEY ux_cuidado_nombre (cuidado_nombre)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Tipo de resolución
+CREATE TABLE tipoderesolucion (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  resolucion_nombre VARCHAR(255) NOT NULL,
+  UNIQUE KEY ux_resolucion_nombre (resolucion_nombre)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Régimen horario
+CREATE TABLE regimenhorario (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  regimen_horario INT NULL,
+  UNIQUE KEY ux_regimen_horario (regimen_horario)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Localidades (a partir de localidades1)
+CREATE TABLE localidades (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  provincia_nombre VARCHAR(255) NULL,
+  municipio_nombre VARCHAR(255) NULL,
+  localidad_nombre VARCHAR(255) NULL,
+  municipio_id VARCHAR(50) NULL,
+  provincia_id VARCHAR(50) NULL,
+  localidad_codigo VARCHAR(50) NULL,
+  UNIQUE KEY ux_localidad_unica (provincia_id, municipio_id, localidad_codigo)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Ocupaciones (puesto / función laboral)
+CREATE TABLE ocupacion (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  nombre_ocupacion VARCHAR(50) NOT NULL,
+  codigo INT NULL,
+  regimen_horario_id INT NULL,
+  es_insalubre TINYINT(1) NULL,
+  especialidad_id INT NULL,
+  ley_id INT NULL,
+  agrupamiento VARCHAR(255) NULL,
+  grado VARCHAR(255) NULL,
+  asignacion VARCHAR(255) NULL,
+  activo TINYINT(1) NULL,
+
+  UNIQUE KEY ux_ocupacion_nombre (nombre_ocupacion),
+
+  FOREIGN KEY (regimen_horario_id) REFERENCES regimenhorario(id),
+  FOREIGN KEY (especialidad_id) REFERENCES especialidaddesmedicas(id),
+  FOREIGN KEY (ley_id) REFERENCES ley(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ===================================================================
+-- T A B L A   P R I N C I P A L   D E   P E R S O N A S
+-- ===================================================================
+
+CREATE TABLE personal (
+  dni VARCHAR(20) NOT NULL PRIMARY KEY,
+
+  apellido VARCHAR(100) NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+
+  fecha_nacimiento DATE NULL,
+  sexo_id INT NULL,
+
+  telefono VARCHAR(50) NULL,
+  email VARCHAR(150) NULL,
+
+  domicilio VARCHAR(200) NULL,
+  localidad_id INT NULL,
+
+  cuil VARCHAR(20) NULL,
+  nacionalidad VARCHAR(50) NULL,
+
+  observaciones TEXT NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (sexo_id) REFERENCES sexo(id),
+  FOREIGN KEY (localidad_id) REFERENCES localidades(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ===================================================================
+-- A G E N T E S   Y   S E R V I C I O S
+-- ===================================================================
+
+CREATE TABLE agentes (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                -- FK a personal
+
+  planta_id INT NULL,                      -- FK a planta(id)
+  categoria_id INT NULL,                   -- FK a categoria(ID)
+  ocupacion_id INT NULL,                   -- FK a ocupacion(id)
+
+  regimen_horario_id INT NULL,             -- FK a regimenhorario(id)
+  ley_id INT NULL,                         -- FK a ley(id)
+
+  sector_id INT NULL,                      -- FK a reparticiones(id)
+  jefatura_id INT NULL,                    -- FK a jefaturas(id)
+
+  fecha_ingreso DATE NULL,
+  fecha_baja DATE NULL,
+
+  estado_empleo ENUM('ACTIVO','INACTIVO','BAJA') DEFAULT 'ACTIVO',
+  salario_mensual DECIMAL(12,2) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni),
+  FOREIGN KEY (planta_id) REFERENCES planta(id),
+  FOREIGN KEY (categoria_id) REFERENCES categoria(ID),
+  FOREIGN KEY (ocupacion_id) REFERENCES ocupacion(id),
+  FOREIGN KEY (regimen_horario_id) REFERENCES regimenhorario(id),
+  FOREIGN KEY (ley_id) REFERENCES ley(id),
+  FOREIGN KEY (sector_id) REFERENCES reparticiones(id),
+  FOREIGN KEY (jefatura_id) REFERENCES jefaturas(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE agentes_servicios (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                   -- FK a personal
+  dependencia_id INT NULL,                    -- FK a reparticiones
+
+  servicio_nombre VARCHAR(255) NULL,
+  jefe_nombre VARCHAR(255) NULL,
+
+  fecha_desde DATE NULL,
+  fecha_hasta DATE NULL,
+  motivo VARCHAR(255) NULL,
+  observaciones VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni),
+  FOREIGN KEY (dependencia_id) REFERENCES reparticiones(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ===================================================================
+-- E V E N T O S   D E L   A G E N T E / R R H H
+-- ===================================================================
+
+-- Bonificaciones
+CREATE TABLE bonificaciones (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,               -- FK a personal
+
+  decreto_numero VARCHAR(50) NULL,
+  motivo VARCHAR(150) NULL,
+  fecha DATE NULL,
+  anio INT NULL,
+  observaciones VARCHAR(250) NULL,
+
+  KEY idx_bonificaciones_dni (dni),
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Citaciones
+CREATE TABLE citaciones (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                -- FK a personal
+
+  citado_por VARCHAR(255) NULL,
+  motivo VARCHAR(255) NULL,
+  citacion_activa TINYINT(1) NULL,
+  fecha_citacion DATETIME NULL,
+  cierre_citacion DATETIME NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Consultas
+CREATE TABLE consultas (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                   -- FK a personal
+
+  motivo_consulta MEDIUMTEXT NULL,
+  explicacion MEDIUMTEXT NULL,
+  atendido_por VARCHAR(255) NULL,
+  hora_atencion DATETIME DEFAULT CURRENT_TIMESTAMP,
+  impreso VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Inconvenientes de agentes
+CREATE TABLE inconvenientesagentes (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                        -- FK a personal
+
+  motivo MEDIUMTEXT NULL,
+  observaciones MEDIUMTEXT NULL,
+
+  fecha_incidente DATE NULL,
+  fecha_desde DATE NULL,
+  fecha_hasta DATE NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Órdenes de trabajo
+CREATE TABLE ordenesdetrabajo (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                    -- FK a personal
+
+  fecha DATE NULL,
+  requiere VARCHAR(255) NULL,
+  descripcion_tarea VARCHAR(255) NULL,
+  estado VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Pedidos
+CREATE TABLE pedidos (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                 -- FK a personal
+
+  pedido VARCHAR(255) NULL,
+  fecha DATE NULL,
+  lugar VARCHAR(255) NULL,
+  estado VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Resoluciones
+CREATE TABLE resoluciones (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                     -- FK a personal
+
+  motivo VARCHAR(50) NULL,
+  observaciones VARCHAR(50) NULL,
+  numero VARCHAR(50) NULL,
+  fecha DATE NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Archivos vinculados a agentes
+CREATE TABLE tblarchivos (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,                     -- FK a personal(dni)
+
+  nombre VARCHAR(255) NULL,
+  tipo VARCHAR(50) NULL,
+  tamanio VARCHAR(50) NULL,
+  fecha DATE NULL,
+  descripcion_archivo VARCHAR(255) NULL,
+  nombre_archivo_original VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- CC (eventos simples vinculados a agente)
+CREATE TABLE cc (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,            -- FK a personal(dni)
+
+  observaciones VARCHAR(255) NULL,
+  fecha DATE NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Expedientes (ahora vinculados a persona)
+CREATE TABLE expedientes (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  dni VARCHAR(20) NOT NULL,               -- FK a personal(dni)
+
+  numero VARCHAR(255) NULL,
+  caratula VARCHAR(255) NULL,
+  fecha DATE NULL,
+  estado VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (dni) REFERENCES personal(dni)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ===================================================================
+-- T A R E A S   Y   F U N C I O N E S
+-- ===================================================================
+
+CREATE TABLE tareas (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  nombre_tarea VARCHAR(255) NULL,
+  descripcion_tarea VARCHAR(255) NULL,
+  estado VARCHAR(255) NULL,
+  fecha DATE NULL,
+  asignado_a VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE tareasadquiridias (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  tarea VARCHAR(255) NULL,
+  descripcion_tarea VARCHAR(255) NULL,
+  estado VARCHAR(255) NULL,
+  fecha DATE NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE funciones (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  funcion VARCHAR(255) NULL,
+  descripcion VARCHAR(255) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ===================================================================
+-- O T R A S   T A B L A S   A U X I L I A R E S
+-- ===================================================================
+
+-- Expedientes externos (sin DNI)
+CREATE TABLE ccoodegdeba (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  nro_expediente VARCHAR(255) NULL,
+  caratula VARCHAR(255) NULL,
+  fecha_y_zura DATE NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Usuarios del sistema
+CREATE TABLE usuarios (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  username VARCHAR(50) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  permisos VARCHAR(50) NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+SET FOREIGN_KEY_CHECKS = 1;
