@@ -1,16 +1,10 @@
-/**
- * Archivo: src/modules/ccoodegdeba/ccoodegdeba.service.js
- * Responsabilidad:
- *   - Orquestar la lógica de negocio para ccoodegdeba.
- */
-import repo from "./ccoodegdeba.repository.js";
+
+import { ccoodegdebaRepository } from "./ccoodegdeba.repository.js";
 
 export const ccoodegdebaService = {
-  list: (query) => repo.list(query),
-  getById: (id) => repo.getById(id),
-  create: (payload, options) => repo.create(payload, options),
-  update: (id, payload, options) => repo.update(id, payload, options),
-  remove: (id, options) => repo.remove(id, options),
+  listar: () => ccoodegdebaRepository.findAll(),
+  obtener: (id) => ccoodegdebaRepository.findById(id),
+  crear: (data) => ccoodegdebaRepository.create(data),
+  actualizar: (id, data) => ccoodegdebaRepository.update(id, data),
+  eliminar: (id) => ccoodegdebaRepository.delete(id)
 };
-
-export default ccoodegdebaService;

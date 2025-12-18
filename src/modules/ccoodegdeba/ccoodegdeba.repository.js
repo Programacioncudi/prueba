@@ -1,11 +1,10 @@
-/**
- * Archivo: src/modules/ccoodegdeba/ccoodegdeba.repository.js
- * Responsabilidad:
- *   - Acceso a datos enterprise (Sequelize) para ccoodegdeba.
- *   - list() soporta paginación/filtros/orden por baseRepository.
- */
-import Model from "./ccoodegdeba.model.js";
-import { makeBaseRepository } from "../../database/baseRepository.js";
 
-export const ccoodegdebaRepository = makeBaseRepository(Model);
-export default ccoodegdebaRepository;
+import { Ccoodegdeba } from "./ccoodegdeba.model.js";
+
+export const ccoodegdebaRepository = {
+  findAll: () => Ccoodegdeba.findAll(),
+  findById: (id) => Ccoodegdeba.findByPk(id),
+  create: (data) => Ccoodegdeba.create(data),
+  update: (id, data) => Ccoodegdeba.update(data, { where: { id } }),
+  delete: (id) => Ccoodegdeba.destroy({ where: { id } })
+};

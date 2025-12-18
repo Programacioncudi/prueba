@@ -1,29 +1,91 @@
-/**
- * Archivo: src/modules/ccoodegdeba/ccoodegdeba.routes.js
- * Responsabilidad:
- *   - Rutas REST enterprise (JWT + RBAC) para ccoodegdeba.
- */
-import { Router } from "express";
+
+import express from "express";
+import { ccoodegdebaController } from "./ccoodegdeba.controller.js";
 import { authRequired } from "../../middleware/auth.middleware.js";
-import { allow } from "../../middleware/permission.middleware.js";
-import { requestContextMiddleware } from "../../middleware/requestContext.middleware.js";
+import { allowTo } from "../../security/permissions.js";
 
-import {
-  listCcoodegdeba,
-  getCcoodegdebaById,
-  createCcoodegdeba,
-  updateCcoodegdeba,
-  deleteCcoodegdeba,
-} from "./ccoodegdeba.controller.js";
+/**
+ * @swagger
+ * tags:
+ *   name: Ccoodegdeba
+ *   description: Operaciones sobre ccoodegdeba
+ */
 
-const router = Router();
+/**
+ * @swagger
+ * /ccoodegdeba:
+ *   get:
+ *     summary: Listar ccoodegdeba
+ *     tags: [Ccoodegdeba]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de registros de ccoodegdeba
+ *   post:
+ *     summary: Crear registro de ccoodegdeba
+ *     tags: [Ccoodegdeba]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       201:
+ *         description: Registro creado
+ *
+ * @swagger
+ * /ccoodegdeba/{id}:
+ *   get:
+ *     summary: Obtener ccoodegdeba por ID
+ *     tags: [Ccoodegdeba]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Registro encontrado
+ *       404:
+ *         description: No encontrado
+ *   put:
+ *     summary: Actualizar ccoodegdeba por ID
+ *     tags: [Ccoodegdeba]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Registro actualizado
+ *   delete:
+ *     summary: Eliminar ccoodegdeba por ID
+ *     tags: [Ccoodegdeba]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Registro eliminado
+ */
 
-router.use(authRequired, requestContextMiddleware);
 
-router.get("/", allow("general:ccoodegdeba:listar"), listCcoodegdeba);
-router.get("/:id", allow("general:ccoodegdeba:ver"), getCcoodegdebaById);
-router.post("/", allow("general:ccoodegdeba:crear"), createCcoodegdeba);
-router.put("/:id", allow("general:ccoodegdeba:editar"), updateCcoodegdeba);
-router.delete("/:id", allow("general:ccoodegdeba:eliminar"), deleteCcoodegdeba);
+const router = express.Router();
+
+router.get("/", authRequired, allowTo("ccoodegdeba:list"), ccoodegdebaController.listar);
+router.get("/:id", authRequired, allowTo("ccoodegdeba:get"), ccoodegdebaController.obtener);
+router.post("/", authRequired, allowTo("ccoodegdeba:create"), ccoodegdebaController.crear);
+router.put("/:id", authRequired, allowTo("ccoodegdeba:update"), ccoodegdebaController.actualizar);
+router.delete("/:id", authRequired, allowTo("ccoodegdeba:delete"), ccoodegdebaController.eliminar);
 
 export default router;
