@@ -1,29 +1,91 @@
-/**
- * Archivo: src/modules/cc/cc.routes.js
- * Responsabilidad:
- *   - Rutas REST enterprise (JWT + RBAC) para cc.
- */
-import { Router } from "express";
+
+import express from "express";
+import { ccController } from "./cc.controller.js";
 import { authRequired } from "../../middleware/auth.middleware.js";
-import { allow } from "../../middleware/permission.middleware.js";
-import { requestContextMiddleware } from "../../middleware/requestContext.middleware.js";
+import { allowTo } from "../../security/permissions.js";
 
-import {
-  listCc,
-  getCcById,
-  createCc,
-  updateCc,
-  deleteCc,
-} from "./cc.controller.js";
+/**
+ * @swagger
+ * tags:
+ *   name: Cc
+ *   description: Operaciones sobre cc
+ */
 
-const router = Router();
+/**
+ * @swagger
+ * /cc:
+ *   get:
+ *     summary: Listar cc
+ *     tags: [Cc]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de registros de cc
+ *   post:
+ *     summary: Crear registro de cc
+ *     tags: [Cc]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       201:
+ *         description: Registro creado
+ *
+ * @swagger
+ * /cc/{id}:
+ *   get:
+ *     summary: Obtener cc por ID
+ *     tags: [Cc]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Registro encontrado
+ *       404:
+ *         description: No encontrado
+ *   put:
+ *     summary: Actualizar cc por ID
+ *     tags: [Cc]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Registro actualizado
+ *   delete:
+ *     summary: Eliminar cc por ID
+ *     tags: [Cc]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Registro eliminado
+ */
 
-router.use(authRequired, requestContextMiddleware);
 
-router.get("/", allow("general:cc:listar"), listCc);
-router.get("/:id", allow("general:cc:ver"), getCcById);
-router.post("/", allow("general:cc:crear"), createCc);
-router.put("/:id", allow("general:cc:editar"), updateCc);
-router.delete("/:id", allow("general:cc:eliminar"), deleteCc);
+const router = express.Router();
+
+router.get("/", authRequired, allowTo("cc:list"), ccController.listar);
+router.get("/:id", authRequired, allowTo("cc:get"), ccController.obtener);
+router.post("/", authRequired, allowTo("cc:create"), ccController.crear);
+router.put("/:id", authRequired, allowTo("cc:update"), ccController.actualizar);
+router.delete("/:id", authRequired, allowTo("cc:delete"), ccController.eliminar);
 
 export default router;
